@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Replay</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/replay.css') }}">
+</head>
+<body>
+    <div class="simulation-container">
+        <header class="top-bar">
+            <div class="team-display left">
+                <img id="teamALogo" src="">
+                <span id="teamAName">TEAM A</span>
+            </div>
+
+            <div class="score-display">
+                <span id="teamAScore">0</span>
+                <div class="round-info">
+                    <div>ROUND <span id="roundNumber">1</span></div>
+                    <div id="mapName">MAP</div>
+                </div>
+                <span id="teamBScore">0</span>
+            </div>
+            
+            <div class="team-display right">
+                <span id="teamBName">TEAM B</span>
+                <img id="teamBLogo" src="">
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div id="teamAPanel" class="team-panel"></div>
+            
+            <div class="center-panel">
+                <div id="map-container">
+                    <img id="miniMap" src="">
+                    <canvas id="replayCanvas"></canvas>
+                </div>
+                <div id="kill-feed-wrapper">
+                    <div id="kill-feed-container"></div>
+                </div>
+            </div>
+            
+            <div id="teamBPanel" class="team-panel"></div>
+        </main>
+    </div>
+
+    <div class="controls-container">
+        <button id="speedBtn1" class="control-button active">1x</button>
+        <button id="speedBtn4" class="control-button">4x</button>
+        <button id="nextRoundBtn" class="control-button">Next Round</button>
+        <button id="freezeBtn" class="control-button">Pause</button>
+        
+        <button id="backBtn" class="control-button secondary">Back to Options</button>
+        </div>
+    
+    <script src="{{ url_for('static', filename='js/replay.js') }}"></script>
+</body>
+</html>

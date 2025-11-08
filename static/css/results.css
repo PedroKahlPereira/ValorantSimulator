@@ -1,0 +1,103 @@
+:root {
+    --primary-color: #ff4655;
+    --primary-color-hover: #e03b48;
+    --secondary-color: #485461;
+    --secondary-color-hover: #5a6878;
+    --background-dark: #1c1c1c;
+    --background-medium: #2a2a2a;
+    --background-light: #333;
+    --border-color: #444;
+    --text-color: #fff;
+    --text-color-muted: #ccc;
+    --success-color: #8cff8c;
+    --danger-color: #ff8c8c;
+    --main-font: 'Poppins', sans-serif;
+    --team-a-color: var(--danger-color);
+    --team-b-color: var(--success-color);
+}
+
+body { /* Estilos gerais do body */
+    background-color: var(--background-dark); color: var(--text-color); font-family: var(--main-font);
+    display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px;
+}
+
+.results-container { /* Container principal */
+    background-color: var(--background-medium); border: 1px solid var(--border-color); border-radius: 10px;
+    padding: 30px; width: 90%; max-width: 900px; text-align: center;
+}
+
+header h1 { color: var(--primary-color); text-transform: uppercase; margin-top: 0; }
+.map-badge { display: inline-block; background-color: #111; border: 1px solid var(--border-color); padding: 5px 15px; border-radius: 15px; font-size: 0.9em; font-weight: 600; color: var(--text-color-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: -10px; margin-bottom: 20px; }
+
+.score-display { display: flex; justify-content: space-around; align-items: center; font-size: 3em; font-weight: bold; margin: 30px 0; }
+.team-result { display: flex; flex-direction: column; align-items: center; width: 300px; }
+.team-result img { width: 120px; height: 120px; object-fit: contain; margin-bottom: 15px; }
+.team-result .team-name { font-size: 0.5em; margin-bottom: 10px; }
+.vs { color: var(--primary-color); }
+.winner .score { color: var(--success-color); }
+.loser .score { color: var(--danger-color); }
+
+/* --- ESTILOS DA TABELA DE STATS (KDA) - VISUAL BONITO --- */
+#stats-container h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-top: 40px; margin-bottom: 30px; text-transform: uppercase; }
+.stats-tables { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 20px auto 0; max-width: 900px; justify-content: center; }
+
+.stats-table { background-color: var(--background-light); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; text-align: left; overflow: hidden; }
+
+/* ======================================================= */
+/* NOVO ESTILO PARA O CABEÇALHO DA TABELA COM A LOGO     */
+/* ======================================================= */
+.team-header {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaço entre a logo e o nome */
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+.team-header img {
+    width: 32px; /* Tamanho pequeno para a logo */
+    height: 32px;
+    object-fit: contain;
+}
+.team-header h3 {
+    margin: 0;
+    font-size: 1.4em;
+    color: var(--text-color);
+}
+/* ======================================================= */
+
+.stats-table table { width: 100%; border-collapse: collapse; }
+.stats-table th { padding: 12px 15px; text-align: left; font-weight: 600; color: var(--text-color-muted); text-transform: uppercase; font-size: 0.9em; border-bottom: 2px solid var(--primary-color); }
+.stats-table td { padding: 14px 15px; border-bottom: 1px solid var(--border-color); }
+.stats-table tbody tr:last-child td { border-bottom: none; }
+.stats-table tbody tr:hover { background-color: rgba(255, 70, 85, 0.1); }
+
+/* --- DETALHES DA SÉRIE --- */
+.series-details { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color); }
+.series-details h2 { margin-bottom: 20px; }
+#details-content { width: 100%; margin-top: 20px; }
+.hidden { display: none; }
+.game-detail { display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; border-radius: 5px; margin: 0 auto 8px auto; background-color: var(--background-light); max-width: 600px; font-weight: 600; text-decoration: none; color: inherit; transition: background-color 0.2s; border-left: 5px solid transparent; border-right: 5px solid transparent; }
+.game-detail:hover { background-color: #4f4f4f; }
+.game-score-container { display: flex; align-items: center; gap: 10px; font-size: 1.1em; }
+.game-score-container img { width: 28px; height: 28px; object-fit: contain; }
+.game-detail.team-a-wins { border-left-color: var(--team-a-color); }
+.game-detail.team-a-wins .game-winner strong { color: var(--team-a-color); }
+.game-detail.team-b-wins { border-right-color: var(--team-b-color); }
+.game-detail.team-b-wins .game-winner strong { color: var(--team-b-color); }
+
+/* --- BOTÕES --- */
+.btn { color: var(--text-color); border: none; padding: 10px 20px; font-size: 0.9em; font-weight: 600; border-radius: 5px; cursor: pointer; transition: background-color 0.2s; text-transform: uppercase; text-decoration: none; }
+.btn-primary { background-color: var(--primary-color); padding: 12px 25px; font-size: 1.1em; }
+.btn-primary:hover { background-color: var(--primary-color-hover); }
+.btn-secondary { background-color: var(--secondary-color); }
+.btn-secondary:hover { background-color: var(--secondary-color-hover); }
+#navigation-buttons { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color); display: flex; justify-content: center; gap: 20px; }
+
+@media (max-width: 768px) {
+    .stats-tables { grid-template-columns: 1fr; }
+    .score-display { font-size: 2em; }
+    .team-result img { width: 80px; height: 80px; }
+    header h1 { font-size: 1.8em; }
+    .game-detail { flex-direction: column; align-items: flex-start; gap: 5px; }
+}

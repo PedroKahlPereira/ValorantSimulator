@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Series Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}">
+</head>
+<body>
+    <div class="results-container">
+        <header>
+            <h1>Series Result</h1>
+        </header>
+        <main class="score-display">
+            <div class="team-result" id="teamA">
+                <img id="teamALogo" src="" alt="Team A Logo">
+                <span class="team-name" id="teamAName"></span>
+                <span class="score" id="teamAScore"></span>
+            </div>
+            <div class="vs">VS</div>
+            <div class="team-result" id="teamB">
+                <img id="teamBLogo" src="" alt="Team B Logo">
+                <span class="team-name" id="teamBName"></span>
+                <span class="score" id="teamBScore"></span>
+            </div>
+        </main>
+        
+        <div class="series-details">
+            <h2>Game Details</h2>
+            <button id="details-btn" class="btn btn-secondary">Show Details</button>
+            <div id="details-content" class="hidden">
+                </div>
+        </div>
+        
+        <div id="navigation-buttons">
+            <button id="back-btn" class="btn btn-secondary">Back</button>
+          
+            <a href="/" class="btn btn-primary">New Simulation</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/series_results.js') }}"></script>
+</body>
+</html>

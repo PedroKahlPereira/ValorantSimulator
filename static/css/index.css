@@ -1,0 +1,97 @@
+/* static/css/index.css */
+
+:root {
+    --team-a-color: #ff4655; --team-a-color-rgb: 255, 70, 85;
+    --team-b-color: #2b9754;  --team-b-color-rgb: 30, 158, 79;
+    --hud-accent-color: #7b889d;
+}
+
+.setup-container { 
+    width: 100%; 
+    max-width: 1600px; /* Aumenta a largura total para mais espaço */
+    margin: 0 auto; 
+    padding: 40px; 
+}
+.setup-container header { text-align: center; margin-bottom: 40px; }
+.setup-container header h1 { font-size: 2.5em; color: var(--primary-color, #ff4655); margin-bottom: 10px; }
+.setup-container header p { font-size: 1.1em; color: var(--text-color-muted, #ccc); }
+
+/* ======================================================= */
+/* MUDANÇA 2: Grid principal volta a ter 3 colunas         */
+/* ======================================================= */
+.setup-grid {
+    display: grid;
+    /* Coluna 1 (flexível) | Coluna 2 (fixa) | Coluna 3 (flexível) */
+    grid-template-columns: 1fr 450px 1fr;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* --- ESTILO DOS PAINÉIS --- */
+.team-panel, .center-panel {
+    background: var(--background-medium, #2a2a2a);
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border-color, #444);
+    border-top: none; 
+}
+
+.team-a-panel { border-left: 4px solid var(--team-a-color); }
+.team-a-panel h2 { color: var(--team-a-color); }
+
+.team-b-panel { border-right: 4px solid var(--team-b-color); }
+.team-b-panel h2 { color: var(--team-b-color); }
+
+.center-panel {
+    border-top: 2px solid var(--hud-accent-color);
+    border-bottom: 2px solid var(--hud-accent-color);
+    border-left: 1px solid var(--border-color, #444);
+    border-right: 1px solid var(--border-color, #444);
+    background: var(--background-light, #333);
+}
+
+.team-panel h2 { text-align: center; margin-top: 0; margin-bottom: 25px; font-size: 1.5em; }
+
+/* --- CUSTOM SELECT (Sem alterações) --- */
+.hidden-select { display: none; }
+.custom-select-wrapper { position: relative; margin-bottom: 20px; }
+.custom-select-trigger { display: flex; align-items: center; gap: 15px; background-color: var(--background-light, #333); border: 1px solid var(--border-color, #444); padding: 12px 15px; border-radius: 6px; cursor: pointer; transition: border-color 0.2s; }
+.custom-select-trigger:hover { border-color: var(--primary-color, #ff4655); }
+.custom-select-trigger .selected-logo { width: 32px; height: 32px; object-fit: contain; display: none; }
+.custom-select-trigger .selected-text { font-weight: 600; font-size: 1.1em; }
+.custom-options { position: absolute; top: 105%; left: 0; width: 100%; background-color: var(--background-light, #333); border: 1px solid var(--border-color, #444); border-radius: 6px; max-height: 250px; overflow-y: auto; z-index: 10; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: opacity 0.2s, transform 0.2s; }
+.custom-select-wrapper.open .custom-options { opacity: 1; visibility: visible; transform: translateY(0); }
+.custom-option { display: flex; align-items: center; gap: 15px; padding: 12px 15px; cursor: pointer; transition: background-color 0.2s; }
+.custom-option img { width: 32px; height: 32px; object-fit: contain; }
+.custom-option span { font-weight: 600; }
+.custom-option.no-logo, .custom-select-trigger.no-logo { gap: 0; padding-left: 20px; }
+.team-a-panel .custom-option:hover { background-color: var(--team-a-color); }
+.team-b-panel .custom-option:hover { background-color: var(--team-b-color); }
+.center-panel .custom-option:hover { background-color: var(--hud-accent-color); }
+
+/* --- LISTA DE JOGADORES (Sem alterações) --- */
+.players-list-container h3 { display: flex; align-items: center; text-align: center; color: var(--text-color-muted, #ccc); text-transform: uppercase; font-size: 0.9em; letter-spacing: 1px; margin-top: 20px; margin-bottom: 15px; border: none; padding: 0; }
+.players-list-container h3::before, .players-list-container h3::after { content: ''; flex-grow: 1; height: 1px; background-color: var(--border-color, #444); }
+.players-list-container h3::before { margin-right: 15px; }
+.players-list-container h3::after { margin-left: 15px; }
+.players-list { display: flex; flex-direction: column; gap: 10px; }
+.player-item { display: flex; align-items: center; gap: 15px; border-radius: 6px; transition: background-color 0.2s; padding: 12px 15px; background-color: var(--background-light, #333); }
+.player-item:hover { background-color: var(--background-hover, #444); }
+.player-photo-small { width: 55px; height: 55px; border-radius: 50%; object-fit: cover; }
+.player-text { display: flex; flex-direction: column; }
+.player-item .player-name { font-weight: 600; font-size: 1.1em; line-height: 1.2; }
+.player-item .player-role { font-size: 0.9em; color: var(--text-color-muted, #ccc); text-transform: uppercase; line-height: 1.2; }
+.team-a-panel .player-photo-small { border: 2px solid var(--team-a-color); }
+.team-b-panel .player-photo-small { border: 2px solid var(--team-b-color); }
+
+/* --- PAINEL CENTRAL (HUD) --- */
+.center-panel { display: flex; flex-direction: column; align-items: center; }
+.versus-display { display: flex; justify-content: space-around; align-items: center; width: 100%; margin-bottom: 20px; }
+.versus-logo { width: 100px; height: 100px; object-fit: contain; opacity: 0.3; transition: opacity 0.3s; }
+.versus-display span { font-size: 2.5em; font-weight: bold; color: var(--primary-color, #ff4655); }
+.match-settings { width: 100%; display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+.match-settings h3 { text-align: center; margin-bottom: 5px; color: var(--text-color-muted, #ccc); }
+.proceed-button { display: block; width: 100%; padding: 15px; margin-top: 30px; background-color: var(--primary-color, #ff4655); color: var(--text-color, #fff); border: none; border-radius: 6px; font-size: 1.2em; font-weight: bold; text-align: center; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background-color 0.2s, opacity 0.3s; }
+.proceed-button:hover { background-color: var(--primary-color-hover, #e03b48); }
+.proceed-button.disabled { background-color: var(--secondary-color, #485461); opacity: 0.6; cursor: not-allowed; pointer-events: none; }

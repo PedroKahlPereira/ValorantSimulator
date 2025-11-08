@@ -1,0 +1,195 @@
+/* ========================================================== */
+/* === ARQUIVO DE CSS RESPONSIVO PARA TODO O PROJETO      === */
+/* ========================================================== */
+
+/* =========================================== */
+/* === ESTILOS GERAIS PARA TELAS PEQUENAS ==== */
+/* =========================================== */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Diminui a fonte base para mobile */
+    }
+
+    /* Um container padrão para centralizar conteúdo */
+    .container, .simulation-container, .results-container, .selection-container {
+        padding: 10px;
+    }
+
+    h1, h2 {
+        font-size: 1.5em;
+        text-align: center;
+    }
+}
+
+
+/* =================================================== */
+/* === PÁGINA INICIAL (provavelmente index.html)   === */
+/* =================================================== */
+@media (max-width: 768px) {
+    /* Assume que seu container principal usa flexbox */
+    .selection-container {
+        flex-direction: column; /* Empilha as colunas de seleção de time */
+        gap: 20px;
+    }
+
+    .team-selection-column, .simulation-options {
+        width: 100%; /* Faz as colunas ocuparem a largura total */
+    }
+
+    .map-selection-container {
+        flex-direction: column; /* Empilha a lista de mapas */
+    }
+
+    .simulation-controls button {
+        width: 100%;
+        padding: 12px;
+        font-size: 1.1em;
+    }
+}
+
+
+/* =========================================================== */
+/* === PÁGINAS DE RESULTADOS (match_results/series_results) === */
+/* =========================================================== */
+@media (max-width: 768px) {
+    .results-header, .series-header {
+        flex-direction: column; /* Empilha os logos e o placar */
+        gap: 15px;
+    }
+
+    .team-info {
+        flex-direction: column;
+    }
+
+    .final-score, .series-score {
+        font-size: 2.5em;
+    }
+
+    /* Transforma a tabela de stats em cards */
+    .stats-table {
+        display: block;
+    }
+    .stats-table thead {
+        display: none; /* Esconde o cabeçalho da tabela */
+    }
+    .stats-table tbody, .stats-table tr, .stats-table td {
+        display: block;
+        width: 100%;
+    }
+    .stats-table tr {
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+    }
+    .stats-table td {
+        text-align: right; /* Alinha o valor à direita */
+        padding-left: 50%; /* Deixa espaço para o label */
+        position: relative;
+    }
+    .stats-table td::before {
+        /* Adiciona o label (Kills, Deaths, etc.) na frente do valor */
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    /* Para a lista de mapas da série */
+    .game-result-card {
+        padding: 10px;
+    }
+}
+
+
+/* =========================================== */
+/* ===== PÁGINA DE REPLAY (replay.html) ====== */
+/* =========================================== */
+
+/* --- Tablet --- */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr 400px 1fr;
+        gap: 15px;
+    }
+    .player-card {
+        grid-template-columns: 55px 1fr 1.5fr auto 1fr;
+        gap: 12px;
+        padding: 8px;
+    }
+    .player-photo-wrapper { width: 55px; height: 55px; }
+    .player-name { font-size: 1.1em; }
+    .weapon-icon { width: 100px; }
+    .team-display { font-size: 1.5em; }
+    .score-display { font-size: 3em; }
+}
+
+/* --- Celular --- */
+@media (max-width: 768px) {
+    .simulation-container {
+        padding: 5px;
+        height: auto;
+    }
+    .top-bar { padding-bottom: 10px; }
+    .team-display { width: 40%; font-size: 1em; gap: 8px; }
+    .team-display img { width: 25px; height: 25px; }
+    .score-display { font-size: 2.2em; gap: 10px; }
+    #mapName { font-size: 1em; }
+
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 10px;
+        height: calc(100vh - 80px);
+    }
+    #teamBPanel { order: 3; }
+    .team-panel { max-height: 30vh; overflow-y: auto; }
+
+    .player-card {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 6px;
+    }
+    .player-photo-wrapper { width: 45px; height: 45px; }
+    .health-bar-container { bottom: -6px; height: 4px; }
+    .player-info { flex-grow: 1; padding-left: 8px; }
+    .player-name { font-size: 1em; }
+    .player-stats-details { display: none; }
+
+    .live-stats {
+        flex-direction: row;
+        border: none;
+        padding: 0;
+        gap: 15px;
+    }
+    .weapon-icon { width: 80px; }
+
+    .center-panel {
+        order: 2;
+        gap: 10px;
+        min-height: 50vh;
+    }
+
+    #kill-feed-wrapper {
+        bottom: auto;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .kill-feed-entry { min-width: 250px; }
+
+    .controls-container {
+        width: 100%;
+        justify-content: center;
+        padding: 8px;
+        bottom: 0;
+        left: 0;
+        transform: none;
+        border-radius: 0;
+        border: none;
+        border-top: 1px solid var(--border-color);
+    }
+}

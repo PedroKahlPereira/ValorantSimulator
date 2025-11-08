@@ -1,0 +1,258 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #111111;
+    color: #f0f0f0;
+}
+#setupContainer {
+    width: 95%;
+    max-width: 1400px;
+    margin: 20px auto;
+}
+header h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #ff4655;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.setup-grid {
+    display: grid;
+    grid-template-columns: 3fr 4fr 3fr;
+    gap: 30px;
+    align-items: flex-start;
+}
+.team-panel-left,
+.team-panel-right {
+    background-color: black;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+select {
+    width: 100%;
+    padding: 10px;
+    background-color: #2c2c2c;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+.center-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.center-logos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+.center-logos img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+.vs-separator {
+    font-size: 2.5em;
+    font-weight: 600;
+    color: #ff4655;
+}
+.players-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+.player-stat-card {
+    display: flex;
+    align-items: center;
+    background-color: rgba(40, 40, 40, 0.6);
+    border-radius: 5px;
+    padding: 8px;
+    border: 1px solid #444;
+}
+.player-agent-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 12px;
+    border: 2px solid #555;
+    object-fit: cover;
+}
+.player-info {
+    display: flex;
+    flex-direction: column;
+}
+.player-name {
+    font-weight: 600;
+    font-size: 1.1em;
+    color: #fff;
+}
+.player-role {
+    font-size: 0.8em;
+    color: #aaa;
+    text-transform: uppercase;
+}
+.match-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+}
+.match-options select {
+    width: 250px;
+}
+
+/* --- ESTILOS DA PÁGINA DE OPÇÕES --- */
+.options-container {
+    background-color: #1c1c1c;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 2rem 3rem;
+    width: 90%;
+    max-width: 800px;
+    margin: 5vh auto;
+    text-align: center;
+}
+.matchup-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+.team-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.team-info img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+.team-info span {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.map-info {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-bottom: 25px;
+}
+.separator {
+    border: none;
+    height: 1px;
+    background-color: #333;
+    margin-bottom: 30px;
+}
+.simulation-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+.sim-button {
+    background-color: #ff4655;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 320px;
+    text-transform: uppercase;
+}
+.sim-button:hover {
+    background-color: #e03b48;
+}
+
+/* ---- INÍCIO DA CORREÇÃO FINAL ---- */
+.sim-button.secondary {
+    background-color: #485461;
+    width: auto;
+    padding: 10px 20px;
+    font-size: 0.9em;
+    /* Adiciona margem apenas ao botão secundário */
+    margin-top: 30px !important;
+}
+/* ---- FIM DA CORREÇÃO FINAL ---- */
+
+.sim-button.secondary:hover {
+    background-color: #5a6878;
+}
+
+
+.map-display-badge {
+    display: inline-block;
+    background-color: #111; /* Fundo bem escuro */
+    border: 1px solid var(--border-color, #444);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.95em;
+    font-weight: 600;
+    color: var(--text-color-muted, #ccc);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 15px; /* Empurra para baixo, separando do VS */
+    margin-bottom: 25px; /* Dá espaço antes dos botões de simulação */
+}
+
+/* ======================================================= */
+/* MUDANÇA 2: Estilos para o Overlay de Carregamento       */
+/* ======================================================= */
+
+#loading-overlay {
+    position: fixed; /* Cobre a tela inteira */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(16, 24, 35, 0.95); /* Fundo escuro semi-transparente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Garante que fique por cima de tudo */
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+#loading-overlay.hidden {
+    opacity: 0;
+    pointer-events: none; /* Impede cliques quando escondido */
+}
+
+#loading-overlay h1 {
+    color: var(--text-primary, #EAEAEA);
+    margin-top: 20px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Spinner de carregamento (opcional, mas profissional) */
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid var(--border-color, #444);
+    border-top: 5px solid var(--primary-color, #ff4655);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
