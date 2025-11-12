@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valorant Simulator - Setup</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
@@ -15,7 +16,7 @@
 
         <div class="setup-grid">
             <div class="team-panel team-a-panel">
-                 <h2>Team 1</h2>
+                <h2>Team 1</h2>
                 <div class="custom-select-wrapper">
                     <select id="team1" name="team_1" class="hidden-select">
                         {% for k, v in teams.items() %}<option value="{{ k }}" data-logo="{{ v.logo_url }}">{{ v.name }}</option>{% endfor %}

@@ -2,6 +2,7 @@ import copy
 import random
 import math
 from flask import Flask, request, jsonify, render_template
+import os
 
 # Certifique-se de que seus arquivos data.py e weapons.py estão corretos
 from data import TEAMS
@@ -400,5 +401,8 @@ def simulate_series(team_a_data, team_b_data, available_maps, games_to_win):
     }
 
 
+
+
 if __name__ == '__main__':
-    app.run(debug=True, port=3000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)

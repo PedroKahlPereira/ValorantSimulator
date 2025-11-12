@@ -16,12 +16,12 @@
     --team-b-color: var(--success-color);
 }
 
-body { /* Estilos gerais do body */
+body {
     background-color: var(--background-dark); color: var(--text-color); font-family: var(--main-font);
     display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px;
 }
 
-.results-container { /* Container principal */
+.results-container {
     background-color: var(--background-medium); border: 1px solid var(--border-color); border-radius: 10px;
     padding: 30px; width: 90%; max-width: 900px; text-align: center;
 }
@@ -37,25 +37,21 @@ header h1 { color: var(--primary-color); text-transform: uppercase; margin-top: 
 .winner .score { color: var(--success-color); }
 .loser .score { color: var(--danger-color); }
 
-/* --- ESTILOS DA TABELA DE STATS (KDA) - VISUAL BONITO --- */
 #stats-container h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-top: 40px; margin-bottom: 30px; text-transform: uppercase; }
 .stats-tables { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 20px auto 0; max-width: 900px; justify-content: center; }
 
 .stats-table { background-color: var(--background-light); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; text-align: left; overflow: hidden; }
 
-/* ======================================================= */
-/* NOVO ESTILO PARA O CABEÇALHO DA TABELA COM A LOGO     */
-/* ======================================================= */
 .team-header {
     display: flex;
     align-items: center;
-    gap: 15px; /* Espaço entre a logo e o nome */
+    gap: 15px;
     padding-bottom: 10px;
     margin-bottom: 15px;
     border-bottom: 1px solid var(--border-color);
 }
 .team-header img {
-    width: 32px; /* Tamanho pequeno para a logo */
+    width: 32px;
     height: 32px;
     object-fit: contain;
 }
@@ -64,7 +60,6 @@ header h1 { color: var(--primary-color); text-transform: uppercase; margin-top: 
     font-size: 1.4em;
     color: var(--text-color);
 }
-/* ======================================================= */
 
 .stats-table table { width: 100%; border-collapse: collapse; }
 .stats-table th { padding: 12px 15px; text-align: left; font-weight: 600; color: var(--text-color-muted); text-transform: uppercase; font-size: 0.9em; border-bottom: 2px solid var(--primary-color); }
@@ -72,7 +67,6 @@ header h1 { color: var(--primary-color); text-transform: uppercase; margin-top: 
 .stats-table tbody tr:last-child td { border-bottom: none; }
 .stats-table tbody tr:hover { background-color: rgba(255, 70, 85, 0.1); }
 
-/* --- DETALHES DA SÉRIE --- */
 .series-details { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color); }
 .series-details h2 { margin-bottom: 20px; }
 #details-content { width: 100%; margin-top: 20px; }
@@ -86,7 +80,6 @@ header h1 { color: var(--primary-color); text-transform: uppercase; margin-top: 
 .game-detail.team-b-wins { border-right-color: var(--team-b-color); }
 .game-detail.team-b-wins .game-winner strong { color: var(--team-b-color); }
 
-/* --- BOTÕES --- */
 .btn { color: var(--text-color); border: none; padding: 10px 20px; font-size: 0.9em; font-weight: 600; border-radius: 5px; cursor: pointer; transition: background-color 0.2s; text-transform: uppercase; text-decoration: none; }
 .btn-primary { background-color: var(--primary-color); padding: 12px 25px; font-size: 1.1em; }
 .btn-primary:hover { background-color: var(--primary-color-hover); }
@@ -96,8 +89,11 @@ header h1 { color: var(--primary-color); text-transform: uppercase; margin-top: 
 
 @media (max-width: 768px) {
     .stats-tables { grid-template-columns: 1fr; }
-    .score-display { font-size: 2em; }
+    .score-display { font-size: 2em; flex-direction: column; gap: 20px; }
+    .team-result { width: 100%; }
     .team-result img { width: 80px; height: 80px; }
     header h1 { font-size: 1.8em; }
     .game-detail { flex-direction: column; align-items: flex-start; gap: 5px; }
+    #navigation-buttons { flex-direction: column; }
+    #navigation-buttons .btn { width: 100%; }
 }
